@@ -14,20 +14,14 @@ export default {
   components: {
     HelloWorld
   },
-  head: {
-  title: {
-    inner: 'Sirv with SMV is dope as fuck'
-  },
-  script: [
-      { type: 'text/javascript', src: 'https://scripts.sirv.com/sirvjs/v3/sirv.js'}
-    ]
-  },
+
 mounted() {
   // let smv = document.createElement('script')
   // smv.setAttribute('src', 'https://scripts.sirv.com/sirvjs/v3/sirv.js')
   // document.head.appendChild(smv)
-  Sirv.start()
-}
+  // Sirv.stop()
+  // Sirv.start()
+},
 }
 </script>
 
