@@ -17,21 +17,23 @@ export default {
   head: {
   title: {
     inner: 'Sirv with SMV is dope as fuck'
-  },
-  script: [
-      { type: 'text/javascript', src: 'https://scripts.sirv.com/sirvjs/v3/sirv.js'}
-    ]
+  }
+  // script: [
+  //     { type: 'text/javascript', src: 'https://scripts.sirv.com/sirvjs/v3/sirv.js'}
+  //   ]
   },
 mounted() {
-  // let smv = document.createElement('script')
-  // smv.setAttribute('src', 'https://scripts.sirv.com/sirvjs/v3/sirv.js')
-  // document.head.appendChild(smv)
-  this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
-    window.Sirv.start('.off')
-  })
+  if (typeof window.Sirv === 'undefined') {
+    let smv = document.createElement('script')
+    smv.setAttribute('src', 'https://scripts.sirv.com/sirvjs/v3/sirv.js')
+    document.head.appendChild(smv)
+    this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
+      window.Sirv.start('.off')
+    })
+  }
 },
 methods: {
-  async loadScript(src) {
+  loadScript(src) {
 	return new Promise(resolve => {
 		const script = document.createElement('script')
 		script.src = src;
