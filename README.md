@@ -1,6 +1,6 @@
 # VueJS 2 + Sirv Media Viewer
 
-### [Live preview](https://marbled-spangle-pangolin.glitch.me/)
+### [Live preview](https://smv-vue2.netlify.app/)
 
 ## Project setup
 ```

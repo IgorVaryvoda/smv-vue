@@ -3,16 +3,16 @@
     <div class="center">
       <img alt="Vue logo" src="./assets/logo.png"> <span style="font-size:122px;padding: 0 20px;">+</span> <img src="https://sirv-cdn.sirv.com/website/img/sirv-logo.svg" width="250px"/>
     </div>
-    <HelloWorld msg="Here's a demo of SMV in VueJS 2"/>
+    <smv msg="Here's a demo of SMV in VueJS 2"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import smv from './components/smv.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    smv
   },
   head: {
   title: {
