@@ -16,7 +16,7 @@ export default {
   },
   head: {
   title: {
-    inner: 'Sirv with SMV is dope as fuck'
+    inner: 'Vue plays nice with Sirv Media Viewer'
   }
   // script: [
   //     { type: 'text/javascript', src: 'https://scripts.sirv.com/sirvjs/v3/sirv.js'}
