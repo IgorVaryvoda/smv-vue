@@ -1,4 +1,6 @@
-# vue-smv
+# VueJS 2 + Sirv Media Viewer
+
+### [Live preview](https://marbled-spangle-pangolin.glitch.me/)
 
 ## Project setup
 ```
