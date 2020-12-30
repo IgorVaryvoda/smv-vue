@@ -27,21 +27,9 @@ mounted() {
     let smv = document.createElement('script')
     smv.setAttribute('src', 'https://scripts.sirv.com/sirvjs/v3/sirv.js')
     document.head.appendChild(smv)
-    this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
-      window.Sirv.start('.off')
-    })
-  }
-},
-methods: {
-  loadScript(src) {
-	return new Promise(resolve => {
-		const script = document.createElement('script')
-		script.src = src;
-		script.type = 'text/javascript'
-		script.async = true
-		script.onload = resolve
-		document.body.appendChild(script)
-	})
+    // this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
+    //   window.Sirv.start('.off')
+    // })
   }
 }
 }

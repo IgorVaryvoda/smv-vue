@@ -48,9 +48,13 @@ export default {
     })
     },
     startSirv() {
-      this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
+      if (typeof window.Sirv === 'undefined') {
+        this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
+          window.Sirv.start('.off')
+        })
+      } else {
         window.Sirv.start('.off')
-      })
+      }
     },
     previous() {
       if (window.Sirv.viewer.getInstance('.buttons').isReady()) {
