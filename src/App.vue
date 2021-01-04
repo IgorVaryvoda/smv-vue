@@ -26,10 +26,8 @@ mounted() {
   if (typeof window.Sirv === 'undefined') {
     let smv = document.createElement('script')
     smv.setAttribute('src', 'https://scripts.sirv.com/sirvjs/v3/sirv.js')
+    smv.async = true
     document.head.appendChild(smv)
-    // this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
-    //   window.Sirv.start('.off')
-    // })
   }
 }
 }
