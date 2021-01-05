@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <p>A showcase of Sirv Media Viewer used with Vue JS 2.</p>
+    <a href="https://sirv.com/help/articles/using-smv-with-vuejs/"><button class="glow-on-hover">Read the tutorial</button></a>
     <h3> Autostart ON </h3>
     <p>Sirv Media Viewer autostarts after the script is loaded with the 'mounted' lifecycle hook</p>
 <div class="container">
@@ -16,12 +18,15 @@
 <button class="glow-on-hover" v-on:click="startSirv">Start</button>
 </div>
 <div class="Sirv off" data-options="autostart:off">
-  <div data-src="https://demo.sirv.com/example.spin"></div>
-  <div data-src="https://demo.sirv.com/image.jpg" data-type="zoom"></div>
-  <div data-src="https://demo.sirv.com/video.mp4"></div>
+  <div data-src="https://demo.sirv.com/tshirt-aqua.spin"></div>
+  <div data-src="https://demo.sirv.com/tshirt-red.spin"></div>
+  <div data-src="https://demo.sirv.com/tshirt-grey.spin"></div>
+  <div data-src="https://demo.sirv.com/tshirt-blue.spin"></div>
+  <div data-src="https://demo.sirv.com/tshirt-green.spin"></div>
 </div>
 <hr>
 <h3>Custom buttons</h3>
+<p>Custom navigation buttons using <a href="https://sirv.com/help/articles/api-smv/">Sirv Media Viewer API</a></p>
 <div class="Sirv buttons" data-options="arrows:false">
   <div data-src="https://demo.sirv.com/demo/apt/01.jpg" data-type="zoom"></div>
   <div data-src="https://demo.sirv.com/demo/apt/02.jpg" data-type="zoom"></div>
@@ -44,7 +49,7 @@ export default {
   props: {
     msg: String
   },
- data () {
+  data () {
     return {
       loading:false
     }
@@ -62,7 +67,7 @@ export default {
     },
     startSirv() {
       typeof window.Sirv === 'undefined' ? this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv. js').then(() => {
-        window.Sirv.start('.off') }) : window.Sirv.start('.off')
+        window.Sirv.start('.off') }).catch(() => console.error('Something went wrong.')) : window.Sirv.start('.off')
       // if (typeof window.Sirv === 'undefined') {
       //   this.loadScript('https://scripts.sirv.com/sirvjs/v3/sirv.js').then(() => {
       //     window.Sirv.start('.off')
@@ -99,9 +104,6 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 .container {
   max-width:750px;
