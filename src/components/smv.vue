@@ -8,6 +8,7 @@
   <div data-src="https://demo.sirv.com/image.jpg" data-type="zoom"></div>
   <div data-src="https://demo.sirv.com/video.mp4"></div>
 </div>
+<hr>
 <h3>Autostart OFF</h3>
 <p>Sirv Media Viewer will not initialize until you push this beautiful button below.</p>
 <button class="glow-on-hover" v-on:click="startSirv">Start</button>
@@ -16,6 +17,7 @@
   <div data-src="https://demo.sirv.com/image.jpg" data-type="zoom"></div>
   <div data-src="https://demo.sirv.com/video.mp4"></div>
 </div>
+<hr>
 <h3>Custom buttons</h3>
 <div class="Sirv buttons" data-options="arrows:false">
   <div data-src="https://demo.sirv.com/demo/apt/01.jpg" data-type="zoom"></div>
@@ -151,5 +153,8 @@ a {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+}
+hr {
+  margin:50px;
 }
 </style>
