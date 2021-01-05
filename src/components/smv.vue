@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h3> Autostart ON </h3>
+    <p>Sirv Media Viewer autostarts after the script is loaded with the 'mounted' lifecycle hook</p>
 <div class="container">
 <div class="Sirv">
   <div data-src="https://demo.sirv.com/example.spin"></div>
@@ -11,7 +12,9 @@
 <hr>
 <h3>Autostart OFF</h3>
 <p>Sirv Media Viewer will not initialize until you push this beautiful button below.</p>
+<div v-if="!loading">
 <button class="glow-on-hover" v-on:click="startSirv">Start</button>
+</div>
 <div class="Sirv off" data-options="autostart:off">
   <div data-src="https://demo.sirv.com/example.spin"></div>
   <div data-src="https://demo.sirv.com/image.jpg" data-type="zoom"></div>
@@ -27,8 +30,10 @@
   <div data-src="https://demo.sirv.com/demo/apt/05.jpg" data-type="zoom"></div>
   <div data-src="https://demo.sirv.com/demo/apt/06.jpg" data-type="zoom"></div>
 </div>
-<button v-on:click="previous">Previous</button>
-<button v-on:click="next">Next</button>
+<div class="buttons">
+<button class="button1 bouncy" v-on:click="previous">⬅ Previous</button>
+<button class="button1 bouncy" v-on:click="next">Next ➡</button>
+</div>
 </div>
   </div>
 </template>
@@ -39,6 +44,11 @@ export default {
   props: {
     msg: String
   },
+ data () {
+    return {
+      loading:false
+    }
+ },
   methods: {
     loadScript(src) {
     return new Promise(resolve => {
@@ -60,6 +70,7 @@ export default {
       // } else {
       //   window.Sirv.start('.off')
       // }
+      this.loading = true
     },
     previous() {
       if (window.Sirv.viewer.getInstance('.buttons').isReady()) {
@@ -79,6 +90,7 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
+  font-size:1.4em;
 }
 ul {
   list-style-type: none;
@@ -95,17 +107,21 @@ a {
   max-width:750px;
   margin: 0 auto;
 }
+.buttons {
+  margin-top:10px;
+}
 .glow-on-hover {
     width: 220px;
     height: 50px;
     border: none;
     outline: none;
     color: #fff;
-    background: #111;
+    background: #327bba;
     cursor: pointer;
     position: relative;
     z-index: 0;
     border-radius: 10px;
+    font-size:1.1em;
 }
 
 .glow-on-hover:before {
@@ -143,7 +159,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #111;
+    background:  #327bba;
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -156,5 +172,41 @@ a {
 }
 hr {
   margin:50px;
+}
+button.button1{
+  display:inline-block;
+  font-size:1.2em;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  color:#757272;
+  text-align:center;
+  transition: all 0.2s;
+  cursor:pointer;
+}
+button.button1:hover{
+  color:#000000;
+  background-color:#c7c2c2;
+}
+@media all and (max-width:30em){
+button.button1{
+  display:block;
+  margin:0.4em auto;
+}
+}
+.bouncy{
+animation:bouncy 5s linear;
+position:relative;
+}
+@keyframes bouncy {
+  0%{top:0em}
+  40%{top:0em}
+  43%{top:-0.9em}
+  46%{top:0em}
+  48%{top:-0.4em}
+  50%{top:0em}
+  100%{top:0em;}
 }
 </style>
